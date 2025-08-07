@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СВАДЕБНОЕ МУЗЛОТО</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(120deg, #fffaf0, #fdeff2);
+            flex-direction: column;
+            position: relative;
+        }
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 30px;
+            color: #cc6699;
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
+        }
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            width: 90%;
+            max-width: 800px;
+        }
+        .button {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            font-size: 1.5rem;
+            background: linear-gradient(145deg, #ffe0ec, #fddde6);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #b36b83;
+            font-weight: bold;
+            opacity: 0.85;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+        .button.clicked {
+            background: #eec1d0;
+            color: white;
+            opacity: 1;
+        }
+        .button:active {
+            transform: scale(0.95);
+        }
+        .button:hover {
+            opacity: 1;
+        }
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .video-container iframe {
+            width: 90%;
+            height: 80%;
+            border: none;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>СВАДЕБНОЕ МУЗЛОТО</h1>
+<div class="buttons-container" id="buttons-container"></div>
+
+<div class="video-container" id="video-container">
+    <iframe id="youtube-video" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+<script>
+    const container = document.getElementById('buttons-container');
+    const videoContainer = document.getElementById('video-container');
+    const youtubeVideo = document.getElementById('youtube-video');
+
+    // 🔴 СЮДА ВСТАВЬ ССЫЛКИ НА ВИДЕО:
+    const videoLinks = {
+        1: "https://youtu.be/F4hQ4J4BFOM?si=2IOQnS7wgddm96oH&t=24",
+        2: "https://www.youtube.com/embed/VIDEO_ID_2",
+        3: "https://www.youtube.com/embed/VIDEO_ID_3",
+        4: "https://www.youtube.com/embed/VIDEO_ID_4",
+        5: "https://www.youtube.com/embed/VIDEO_ID_5",
+        6: "https://www.youtube.com/embed/VIDEO_ID_6",
+        7: "https://www.youtube.com/embed/VIDEO_ID_7",
+        8: "https://www.youtube.com/embed/VIDEO_ID_8",
+        9: "https://www.youtube.com/embed/VIDEO_ID_9",
+        10: "https://www.youtube.com/embed/VIDEO_ID_10",
+        11: "https://www.youtube.com/embed/VIDEO_ID_11",
+        12: "https://www.youtube.com/embed/VIDEO_ID_12",
+        13: "https://www.youtube.com/embed/VIDEO_ID_13",
+        14: "https://www.youtube.com/embed/VIDEO_ID_14",
+        15: "https://www.youtube.com/embed/VIDEO_ID_15",
+        16: "https://www.youtube.com/embed/VIDEO_ID_16",
+        17: "https://www.youtube.com/embed/VIDEO_ID_17",
+        18: "https://www.youtube.com/embed/VIDEO_ID_18",
+        19: "https://www.youtube.com/embed/VIDEO_ID_19",
+        20: "https://www.youtube.com/embed/VIDEO_ID_20",
+        21: "https://www.youtube.com/embed/VIDEO_ID_21",
+        22: "https://www.youtube.com/embed/VIDEO_ID_22",
+        23: "https://www.youtube.com/embed/VIDEO_ID_23",
+        24: "https://www.youtube.com/embed/VIDEO_ID_24",
+        25: "https://www.youtube.com/embed/VIDEO_ID_25",
+        26: "https://www.youtube.com/embed/VIDEO_ID_26",
+        27: "https://www.youtube.com/embed/VIDEO_ID_27",
+        28: "https://www.youtube.com/embed/VIDEO_ID_28",
+        29: "https://www.youtube.com/embed/VIDEO_ID_29",
+        30: "https://www.youtube.com/embed/VIDEO_ID_30",
+    };
+
+    for (let i = 1; i <= 30; i++) {
+        const button = document.createElement('button');
+        button.classList.add('button');
+        button.innerText = i;
+
+        button.onclick = () => {
+            const link = videoLinks[i];
+            if (link) {
+                youtubeVideo.src = link + "?autoplay=1";
+                videoContainer.style.display = 'flex';
+                button.classList.add('clicked');
+            }
+        };
+
+        container.appendChild(button);
+    }
+
+    videoContainer.onclick = () => {
+        videoContainer.style.display = 'none';
+        youtubeVideo.src = "";
+    };
+</script>
+
+</body>
+</html>
